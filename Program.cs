@@ -1,4 +1,7 @@
-﻿string[] inputArray = new string[5] {"Hi", "from", "Alex", "Kopylov", ":-)"};
+﻿string[] inputArray = new string[5] { "Hi", "from", "Alex", "Kopylov", ":-)" };
+
+OutputArray(inputArray, "Input");
+OutputArray(ClearArray(inputArray), "Output");
 
 string[] ClearArray(string[] inputArr) //Create new array
 {
@@ -13,4 +16,15 @@ string[] ClearArray(string[] inputArr) //Create new array
         }
     }
     return resultArr;
+}
+
+void OutputArray(string[] inputArr, string temp)
+{
+    string result = "[ ";
+    for (int i = 0; i < inputArr.GetLength(0); i++)
+    {
+        result += "\"" + inputArr[i] + "\" ";
+    }
+    result += "]";
+    Console.WriteLine($"{temp} array: {result}");
 }

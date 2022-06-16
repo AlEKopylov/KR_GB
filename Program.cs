@@ -1,11 +1,10 @@
 ﻿string[] inputArray = new string[5] { "Hi", "from", "Alex", "Kopylov", ":-)" };
+PrintArray(inputArray, "Input");
+PrintArray(FilterArray(inputArray), "Output");
 
-OutputArray(inputArray, "Input");
-OutputArray(ClearArray(inputArray), "Output");
-
-string[] ClearArray(string[] inputArr) //Create new array
+string[] FilterArray(string[] inputArr)
 {
-    string[] resultArr = new string[inputArr.GetLength(0)];
+    string[] resultArr = new string[CheckLength(inputArr)];
     int count = 0;
     for (int i = 0; i < inputArr.GetLength(0); i++)
     {
@@ -17,8 +16,7 @@ string[] ClearArray(string[] inputArr) //Create new array
     }
     return resultArr;
 }
-
-void OutputArray(string[] inputArr, string temp)
+void PrintArray(string[] inputArr, string nameArray)
 {
     string result = "[ ";
     for (int i = 0; i < inputArr.GetLength(0); i++)
@@ -26,5 +24,17 @@ void OutputArray(string[] inputArr, string temp)
         result += "\"" + inputArr[i] + "\" ";
     }
     result += "]";
-    Console.WriteLine($"{temp} array: {result}");
+    Console.WriteLine($"{nameArray} array: {result}");
+}
+int CheckLength (string[] inputArr)
+{
+    int count = 0;
+    for (int i = 0; i < inputArr.GetLength(0); i++)
+    {
+        if (inputArr[i].Length <= 3)
+        {
+            count++;
+        }
+    }
+    return count;
 }

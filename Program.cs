@@ -5,13 +5,13 @@ PrintArray(FilterArray(inputArray), "Output");
 string[] FilterArray(string[] inputArr)
 {
     string[] resultArr = new string[CheckLength(inputArr)];
-    int count = 0;
+    int countResultArr = 0;
     for (int i = 0; i < inputArr.GetLength(0); i++)
     {
         if (inputArr[i].Length <= 3)
         {
-            resultArr[count] = inputArr[i];
-            count++;
+            resultArr[countResultArr] = inputArr[i];
+            countResultArr++;
         }
     }
     return resultArr;
@@ -26,7 +26,7 @@ void PrintArray(string[] inputArr, string nameArray)
     result += "]";
     Console.WriteLine($"{nameArray} array: {result}");
 }
-int CheckLength (string[] inputArr)
+int CheckLength(string[] inputArr)
 {
     int count = 0;
     for (int i = 0; i < inputArr.GetLength(0); i++)
